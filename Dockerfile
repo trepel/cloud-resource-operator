@@ -1,6 +1,9 @@
 # Build the manager binary	
-FROM registry.redhat.io/ubi8/go-toolset:1.20.12-5 as builder
-		
+FROM registry.redhat.io/ubi8/go-toolset:1.20.12-5 AS builder
+
+# this is required for podman
+USER root
+
 WORKDIR /workspace	
 # Copy the Go Modules manifests	
 COPY go.mod go.mod	
